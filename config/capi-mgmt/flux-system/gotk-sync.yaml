@@ -13,7 +13,7 @@ spec:
   url: ssh://git@github.com/stealthybox/capi-flux-demo
   verify:
     mode: head
-    secretKeyRef:
+    secretRef:
       name: admin-public-gpg
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
