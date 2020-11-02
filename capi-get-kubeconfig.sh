@@ -1,7 +1,7 @@
 clusterctl get kubeconfig \
-  -n gotk-system \
-  child > child.kubeconfig
+  -n flux-system \
+  child2 > child2.kubeconfig
 
 sed -i \
-  -e "s/server:.*/server: https:\/\/$(docker port child-lb 6443/tcp | sed "s/0.0.0.0/127.0.0.1/")/g" \
-  ./child.kubeconfig
+  -e "s/server:.*/server: https:\/\/$(docker port child2-lb 6443/tcp | sed "s/0.0.0.0/127.0.0.1/")/g" \
+  ./child2.kubeconfig
