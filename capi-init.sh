@@ -1,0 +1,2 @@
+clusterctl init \
+   --infrastructure docker
