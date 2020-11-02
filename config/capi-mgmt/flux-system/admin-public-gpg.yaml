@@ -1,0 +1,69 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: admin-public-gpg
+  namespace: flux-system
+stringData:
+  # Add your public key here so that your signed commits
+  # can satisfy the source verification in `gotk-sync.yaml`.
+  #
+  # These public keys are safe to configure via the repo
+  # ( If there is no commit verification, unverified commits
+  # can already change the gotk-sync config. )
+  # This Secret improves the security posture of this repo
+  # by enforcing that the infrastructure is only modified
+  # via commits that are signed from this allow-list.
+  # Allowed contributors already present in this key-list
+  # can PR their own signed commits to add/remove access for 
+  # themselves or others, and it is logged in the commit log.
+  stealthybox.asc: |
+    -----BEGIN PGP PUBLIC KEY BLOCK-----
+    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
+    =VFJo
+    -----END PGP PUBLIC KEY BLOCK-----
