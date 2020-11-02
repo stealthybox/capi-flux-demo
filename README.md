@@ -31,8 +31,8 @@ Commit history is signed and preserved for comedic effect!
 ## Forking
 
 ```shell
-hub clone stealthybox/multicluster-gitops
-cd multicluster-gitops
+hub clone stealthybox/capi-flux-demo
+cd capi-flux-demo
 hub fork
 ```
 Alternatively, fork in the web UI and clone.
