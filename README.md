@@ -58,10 +58,10 @@ kind/create.sh
 clusterctl init --infrastructure docker
 ```
 
-Bootstrap this repo or your fork to the cluster /w Flux:
+Bootstrap your fork to the cluster /w Flux:
 ```shell
 GITHUB_USER=stealthybox
-# set your own user if you're using your own fork
+# set your own user here
 
 export GITHUB_TOKEN="<personal access token with repo and SSH key rights>"
 
@@ -89,7 +89,7 @@ If you're docker cluster API provider is working, a cluster called "child2" shou
 Bootstrapping this repo created the Cluster objects in our initial
 capi mgmt cluster.
 
-Additionally this repo uses Flux's Kustomization API to sync the
+This repo uses Flux's Kustomization API to sync the
 `./config/child2` directory to the child cluster to provision the
 kindnet network.  
 An additional GitRepository + Kustomization installs
@@ -112,12 +112,12 @@ kubeconfig file in a deterministic Secret for Clusters that it
 provisions.
 
 This Secret shows up in the same namespace as our Kustomization
-(flux-system), because our Cluster is also there.
+(flux-system), because our Cluster is also declared there.
 
 
 ## Other notes
 
-If you make more commits and want to poke the reconciler, tun:
+If you make more commits and want to poke the reconciler, run:
 ```
 flux reconcile source git flux-system
 ```
