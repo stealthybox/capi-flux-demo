@@ -85,12 +85,12 @@ kubectl get kustomization -A
 
 ## Flux + Cluster API
 
-If you're docker cluster API provider is working, a cluster called "child2" should already be creating or be created by now.
+If you're docker cluster API provider is working, a cluster called "child" should already be creating or be created by now.
 Bootstrapping this repo created the Cluster objects in our initial
 capi mgmt cluster.
 
 This repo uses Flux's Kustomization API to sync the
-`./config/child2` directory to the child cluster to provision the
+`./config/child` directory to the child cluster to provision the
 kindnet network.  
 An additional GitRepository + Kustomization installs
 [podinfo](https://github.com/stefanprodan/podinfo) to the `dev` namespace.
@@ -104,7 +104,7 @@ kubectl get cluster -A
 ./capi-get-kubeconfig.sh
 
 # list the sync'd workloads in the child cluster
-kubectl get po -A --kubeconfig child2.kubeconfig
+kubectl get po -A --kubeconfig child.kubeconfig
 ```
 
 This is possible because Cluster API produces a self-contained

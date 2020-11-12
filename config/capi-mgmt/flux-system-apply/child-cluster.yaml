@@ -1,38 +1,38 @@
 apiVersion: cluster.x-k8s.io/v1alpha3
 kind: Cluster
 metadata:
-  name: child2
+  name: child
   namespace: flux-system
 spec:
   clusterNetwork:
     pods:
       cidrBlocks:
       - 10.100.0.0/16
-    serviceDomain: child2-cluster.local
+    serviceDomain: child-cluster.local
     services:
       cidrBlocks:
       - 10.200.0.0/12
   controlPlaneRef:
     apiVersion: controlplane.cluster.x-k8s.io/v1alpha3
     kind: KubeadmControlPlane
-    name: child2-control-plane
+    name: child-control-plane
     namespace: flux-system
   infrastructureRef:
     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
     kind: DockerCluster
-    name: child2
+    name: child
     namespace: flux-system
 ---
 apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
 kind: DockerCluster
 metadata:
-  name: child2
+  name: child
   namespace: flux-system
 ---
 apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
 kind: DockerMachineTemplate
 metadata:
-  name: child2-control-plane
+  name: child-control-plane
   namespace: flux-system
 spec:
   template:
@@ -44,13 +44,13 @@ spec:
 apiVersion: controlplane.cluster.x-k8s.io/v1alpha3
 kind: KubeadmControlPlane
 metadata:
-  name: child2-control-plane
+  name: child-control-plane
   namespace: flux-system
 spec:
   infrastructureTemplate:
     apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
     kind: DockerMachineTemplate
-    name: child2-control-plane
+    name: child-control-plane
     namespace: flux-system
   kubeadmConfigSpec:
     clusterConfiguration:
@@ -77,7 +77,7 @@ spec:
 apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
 kind: DockerMachineTemplate
 metadata:
-  name: child2-md-0
+  name: child-md-0
   namespace: flux-system
 spec:
   template:
@@ -86,7 +86,7 @@ spec:
 apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
 kind: KubeadmConfigTemplate
 metadata:
-  name: child2-md-0
+  name: child-md-0
   namespace: flux-system
 spec:
   template:
@@ -99,10 +99,10 @@ spec:
 apiVersion: cluster.x-k8s.io/v1alpha3
 kind: MachineDeployment
 metadata:
-  name: child2-md-0
+  name: child-md-0
   namespace: flux-system
 spec:
-  clusterName: child2
+  clusterName: child
   replicas: 1
   selector:
     matchLabels: null
@@ -112,12 +112,12 @@ spec:
         configRef:
           apiVersion: bootstrap.cluster.x-k8s.io/v1alpha3
           kind: KubeadmConfigTemplate
-          name: child2-md-0
+          name: child-md-0
           namespace: flux-system
-      clusterName: child2
+      clusterName: child
       infrastructureRef:
         apiVersion: infrastructure.cluster.x-k8s.io/v1alpha3
         kind: DockerMachineTemplate
-        name: child2-md-0
+        name: child-md-0
         namespace: flux-system
       version: 1.19.1

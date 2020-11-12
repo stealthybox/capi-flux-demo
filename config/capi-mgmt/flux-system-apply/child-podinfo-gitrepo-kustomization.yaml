@@ -25,7 +25,7 @@ spec:
     name: podinfo
   kubeConfig:
     secretRef:
-      name: child2-kubeconfig
+      name: child-kubeconfig
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment

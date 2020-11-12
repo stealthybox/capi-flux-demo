@@ -2,16 +2,16 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: child2-apply
+  name: child-apply
   namespace: flux-system
 spec:
   interval: 1m0s
-  path: ./config/child2/
+  path: ./config/child/
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
   kubeConfig:
     secretRef:
-      name: child2-kubeconfig
+      name: child-kubeconfig
   timeout: 2m
