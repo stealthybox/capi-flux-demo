@@ -50,3 +50,7 @@ RUN curl -s https://raw.githubusercontent.com/fluxcd/flux2/main/install/flux.sh 
 #  install clusterctl
 RUN curl -sSL -o /usr/local/bin/clusterctl "https://github.com/kubernetes-sigs/cluster-api/releases/download/v${CLUSTERCTL_VERSION}/clusterctl-linux-amd64" \
     && chmod +x /usr/local/bin/clusterctl
+
+    https://gitea.com/api/v1/user/repos?access_token=TOKEN
+    https://gitlab.com/api/v3/projects?private_token=<your token>
+    https://api.github.com/user/repos
