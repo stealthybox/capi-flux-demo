@@ -10,12 +10,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/stealthybox/capi-flux-demo
-# # Uncomment this section to enable commit verification :)
-  # verify:
-  #   mode: head
-  #   secretRef:
-  #     name: admin-public-gpg
+  url: ssh://git@github.com/fire-ant/capi-flux-demo
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization

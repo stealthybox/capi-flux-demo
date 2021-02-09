@@ -27,6 +27,7 @@ Commit history is signed and preserved for comedic effect!
   - kubectl
   - clusterctl
 
+NOTE: if you are a vscode user and have enabled the 'remote-containers' extension you can avail of the devcontainer with the tools listed above already installed.
 
 ## Forking
 
